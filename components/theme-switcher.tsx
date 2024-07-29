@@ -24,15 +24,15 @@ export function ThemeSwitcher() {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="start">
         <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
+          Светлая
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
+          Тёмная
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
+          Системная
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
