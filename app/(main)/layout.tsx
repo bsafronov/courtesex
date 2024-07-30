@@ -16,8 +16,8 @@ export default async function Layout({
   return (
     <div className="flex min-h-screen">
       <Navbar />
-      <div className="grow ml-64 mr-4 my-4 border rounded-md bg-card">
-        {children}
+      <div className="grow">
+        <div className="mx-auto max-w-screen-lg px-4">{children}</div>
       </div>
     </div>
   );
