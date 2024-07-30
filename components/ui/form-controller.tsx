@@ -34,7 +34,7 @@ export const FormController = <T extends FieldValues>({
 
   return (
     <Form {...form}>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className="w-full">
         <div className={cn("space-y-4", className)}>{children}</div>
         <div className="mt-4 flex justify-end gap-4">
           {hasCancel ? (

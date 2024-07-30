@@ -1,8 +1,7 @@
+import { PostForm } from "@/components/post-form";
 import { PostList } from "@/components/post-list";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { SendHorizonal } from "lucide-react";
 
 export default function Page() {
   return (
@@ -23,10 +22,7 @@ export default function Page() {
       </div>
       <div>
         <div className="flex gap-2">
-          <Textarea placeholder="Напишите что-нибудь..." />
-          <Button size={"icon"} variant={"ghost"}>
-            <SendHorizonal />
-          </Button>
+          <PostForm />
         </div>
         <div className="mt-16">
           <PostList />
