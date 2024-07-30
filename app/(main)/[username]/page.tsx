@@ -1,9 +1,25 @@
+import { getUserByUsername } from "@/actions/get-user-by-username";
 import { PostForm } from "@/components/post-form";
 import { PostList } from "@/components/post-list";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { notFound } from "next/navigation";
 
-export default function Page() {
+type Props = {
+  params: {
+    username: string;
+  };
+};
+
+export default async function Page({ params }: Props) {
+  const { username } = params;
+
+  const user = await getUserByUsername(username);
+
+  if (!user) {
+    return notFound();
+  }
+
   return (
     <div>
       <h1 className="py-16 text-xl">Моя страница</h1>
@@ -22,10 +38,10 @@ export default function Page() {
       </div>
       <div>
         <div className="flex gap-2">
-          <PostForm />
+          <PostForm username={username} />
         </div>
         <div className="mt-16">
-          <PostList />
+          <PostList username={username} />
         </div>
       </div>
     </div>

@@ -2,33 +2,43 @@ import { MoreHorizontal } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
+import { getUserPosts } from "@/actions/get-user-posts";
+import { getRelativeDate } from "@/lib/date";
+import { getUsernameInitials } from "@/lib/utils";
 
-export const Post = () => {
+type Props = {
+  post: Return<typeof getUserPosts>[number];
+  username: string;
+};
+
+export const Post = ({ post, username }: Props) => {
+  const { content, createdAt } = post;
+
   return (
     <Card className="p-6">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Avatar>
             <AvatarImage />
-            <AvatarFallback>BS</AvatarFallback>
+            <AvatarFallback>{getUsernameInitials(username)}</AvatarFallback>
           </Avatar>
           <div className="flex flex-col">
-            <span className="">@bsafronov</span>
-            <span className="text-muted-foreground text-xs">24.07.2024 г.</span>
+            <span>@{username}</span>
+            <span className="text-xs text-muted-foreground">
+              {getRelativeDate(createdAt)}
+            </span>
           </div>
         </div>
         <Button size={"icon"} variant={"ghost"}>
           <MoreHorizontal />
         </Button>
       </div>
-      <div className="my-8">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi saepe,
-          fuga, officiis placeat totam tempore est, veritatis voluptatibus sint
-          fugit molestias consequuntur at atque quisquam. Quia ex beatae autem
-          placeat!
-        </p>
-      </div>
+      {content && (
+        <div
+          className="prose prose-zinc my-8 dark:prose-invert"
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
+      )}
     </Card>
   );
 };

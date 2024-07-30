@@ -188,6 +188,25 @@ export const imagesTable = schema.table("images", {
   url: varchar("url", { length: 256 }).notNull(),
 });
 
+export const imagesRelations = relations(imagesTable, ({ one, many }) => ({
+  author: one(usersTable, {
+    fields: [imagesTable.userId],
+    references: [usersTable.id],
+  }),
+  post: one(postsTable, {
+    fields: [imagesTable.postId],
+    references: [postsTable.id],
+  }),
+  comment: one(commentsTable, {
+    fields: [imagesTable.commentId],
+    references: [commentsTable.id],
+  }),
+  message: one(messagesTable, {
+    fields: [imagesTable.messageId],
+    references: [messagesTable.id],
+  }),
+}));
+
 export const audiosTable = schema.table("audios", {
   id,
   createdAt,
@@ -198,6 +217,25 @@ export const audiosTable = schema.table("audios", {
   url: varchar("url", { length: 256 }).notNull(),
 });
 
+export const audiosRelations = relations(audiosTable, ({ one, many }) => ({
+  author: one(usersTable, {
+    fields: [audiosTable.userId],
+    references: [usersTable.id],
+  }),
+  post: one(postsTable, {
+    fields: [audiosTable.postId],
+    references: [postsTable.id],
+  }),
+  comment: one(commentsTable, {
+    fields: [audiosTable.commentId],
+    references: [commentsTable.id],
+  }),
+  message: one(messagesTable, {
+    fields: [audiosTable.messageId],
+    references: [messagesTable.id],
+  }),
+}));
+
 export const videosTable = schema.table("videos", {
   id,
   createdAt,
@@ -207,6 +245,25 @@ export const videosTable = schema.table("videos", {
   commentId,
   url: varchar("url", { length: 256 }).notNull(),
 });
+
+export const videosRelations = relations(videosTable, ({ one, many }) => ({
+  author: one(usersTable, {
+    fields: [videosTable.userId],
+    references: [usersTable.id],
+  }),
+  post: one(postsTable, {
+    fields: [videosTable.postId],
+    references: [postsTable.id],
+  }),
+  comment: one(commentsTable, {
+    fields: [videosTable.commentId],
+    references: [commentsTable.id],
+  }),
+  message: one(messagesTable, {
+    fields: [videosTable.messageId],
+    references: [messagesTable.id],
+  }),
+}));
 
 export const commentsTable = schema.table("comments", {
   id,

@@ -1,13 +1,24 @@
+"use client";
+
+import { useQuery } from "@tanstack/react-query";
 import { Post } from "./post";
+import { getUserPosts } from "@/actions/get-user-posts";
 
-type Props = {};
+type Props = {
+  username: string;
+};
 
-export const PostList = () => {
+export const PostList = ({ username }: Props) => {
+  const { data: posts } = useQuery({
+    queryKey: ["posts", username],
+    queryFn: () => getUserPosts(username),
+  });
+
   return (
     <div className="flex flex-col gap-2">
-      <Post />
-      <Post />
-      <Post />
+      {posts?.map((post) => (
+        <Post key={post.id} post={post} username={username} />
+      ))}
     </div>
   );
 };

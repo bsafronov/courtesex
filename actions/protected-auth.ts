@@ -8,4 +8,6 @@ export const protectedAuth = async () => {
   if (!user) {
     throw new Error("Not authenticated!");
   }
+
+  return user;
 };

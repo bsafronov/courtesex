@@ -17,7 +17,7 @@ export default async function Layout({
     <div className="flex min-h-screen">
       <Navbar />
       <div className="grow">
-        <div className="mx-auto max-w-screen-lg px-4">{children}</div>
+        <div className="mx-auto mb-16 max-w-screen-lg px-4">{children}</div>
       </div>
     </div>
   );

@@ -25,13 +25,13 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "bg-background min-h-screen font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased",
           fontSans.variable,
         )}
       >
         <QueryProvider>
           <ThemeProvider>
-            <Toaster />
+            <Toaster richColors />
             {children}
           </ThemeProvider>
         </QueryProvider>

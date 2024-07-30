@@ -29,6 +29,7 @@ type Props = {
 export const Editor = ({ className, onChange, value }: Props) => {
   const editor = useEditor({
     extensions: [StarterKit, Underline],
+    immediatelyRender: false,
     editorProps: {
       attributes: {
         class: cn(
