@@ -47,7 +47,7 @@ export const Editor = ({ className, onChange, value }: Props) => {
   if (!editor) return null;
 
   return (
-    <div className={"grow rounded-md"}>
+    <div className={"grow rounded-md border bg-background"}>
       <div className="flex divide-x border-b">
         <div className="space-x-1 p-1">
           <ToggleButton

@@ -15,6 +15,9 @@ type Props = {
 };
 export const PostForm = ({ username }: Props) => {
   const form = useZodForm(createPostSchema, {
+    defaultValues: {
+      content: "",
+    },
     values: {
       content: "",
     },
@@ -28,7 +31,9 @@ export const PostForm = ({ username }: Props) => {
         queryKey: ["posts", username],
       });
       toast.success("Пост добавлен!");
-      form.reset();
+      form.reset({
+        content: "",
+      });
     },
     onError: () => {
       toast.error("Произошла ошибка при добавлении поста");
@@ -39,7 +44,7 @@ export const PostForm = ({ username }: Props) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={onSubmit} className="w-full rounded-md border">
+      <form onSubmit={onSubmit} className="w-full">
         <FieldController
           control={form.control}
           name="content"
@@ -48,7 +53,7 @@ export const PostForm = ({ username }: Props) => {
           )}
         />
         <div className="flex justify-end p-4">
-          <Button type="submit" disabled={isPending}>
+          <Button type="submit" variant={"ghost"} disabled={isPending}>
             Создать
           </Button>
         </div>

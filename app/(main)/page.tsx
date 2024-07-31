@@ -1,9 +1,12 @@
-export default function Page() {
-  return (
-    <div>
-      <div className="mx-auto max-w-screen-lg">
-        <h1 className="text-xl py-16">Главная</h1>
-      </div>
-    </div>
-  );
+import { getCurrentUser } from "@/actions/get-current-user";
+import { redirect } from "next/navigation";
+
+export default async function Page() {
+  const user = await getCurrentUser();
+
+  if (user) {
+    return redirect(`/${user.username}`);
+  }
+
+  return null;
 }

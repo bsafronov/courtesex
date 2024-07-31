@@ -17,6 +17,7 @@ export async function getUserPosts(username: string) {
     where: eq(postsTable.userId, user.id),
     limit: 20,
     with: {
+      author: true,
       images: true,
       videos: true,
       reactions: true,
