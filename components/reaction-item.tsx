@@ -28,7 +28,7 @@ export const ReactionItem = ({ reactions, emoji, hasUserReaction }: Props) => {
   return (
     <button
       className={cn(
-        "flex items-center gap-1 rounded-full px-3 py-0.5 text-muted-foreground transition-colors hover:bg-muted/30",
+        "flex items-center gap-1 rounded-full bg-muted/40 px-3 py-0.5 text-muted-foreground transition-colors hover:bg-muted/60",
         hasUserReaction && "bg-muted/80 hover:bg-muted",
       )}
       onClick={() =>

@@ -21,6 +21,11 @@ export async function getUserPosts(username: string) {
       images: true,
       videos: true,
       reactions: true,
+      comments: {
+        columns: {
+          id: true,
+        },
+      },
     },
   });
 }

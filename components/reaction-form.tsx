@@ -33,8 +33,8 @@ export const ReactionForm = (props: Props) => {
   return (
     <TooltipProvider>
       <Tooltip delayDuration={50}>
-        <TooltipTrigger className="text-muted-foreground/70 transition-colors hover:text-primary">
-          <Smile />
+        <TooltipTrigger className="text-muted-foreground/50 transition-colors hover:text-primary">
+          <Smile className="size-5" />
         </TooltipTrigger>
         <TooltipContent className="rounded-full border p-1">
           {Object.values(EMOJI).map((emoji) => (
