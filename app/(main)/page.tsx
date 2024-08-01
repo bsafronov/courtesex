@@ -8,5 +8,7 @@ export default async function Page() {
     return redirect(`/${user.username}`);
   }
 
-  return null;
+  if (!user) {
+    redirect("/auth/sign-in");
+  }
 }

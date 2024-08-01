@@ -34,7 +34,7 @@ export default function Page() {
   const onSubmit = form.handleSubmit(async (data) => mutate(data));
 
   return (
-    <Card>
+    <Card className="w-96">
       <CardHeader>
         <CardTitle>Авторизация</CardTitle>
       </CardHeader>
@@ -61,10 +61,13 @@ export default function Page() {
           />
         </FormController>
       </CardContent>
-      <CardFooter className="text-xs">
+      <CardFooter className="text-sm">
         <p>
           Нет аккаунта?{" "}
-          <Link href={"/auth/sign-up"} className="text-blue-500">
+          <Link
+            href={"/auth/sign-up"}
+            className="text-blue-600 hover:text-blue-500"
+          >
             Регистрация
           </Link>
         </p>

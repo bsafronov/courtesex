@@ -1,6 +1,7 @@
 import { getCurrentUser } from "@/actions/get-current-user";
 import { NavbarLink } from "./navbar-link";
 import { ThemeSwitcher } from "./theme-switcher";
+import { SignOutButton } from "./sign-out-button";
 
 export const Navbar = async () => {
   const user = await getCurrentUser();
@@ -30,8 +31,9 @@ export const Navbar = async () => {
         </div>
       </div>
 
-      <div>
+      <div className="flex justify-between">
         <ThemeSwitcher />
+        <SignOutButton />
       </div>
     </div>
   );
