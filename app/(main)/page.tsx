@@ -5,7 +5,7 @@ export default async function Page() {
   const user = await getCurrentUser();
 
   if (user) {
-    return redirect(`/${user.username}`);
+    return redirect(`/users/${user.username}`);
   }
 
   if (!user) {

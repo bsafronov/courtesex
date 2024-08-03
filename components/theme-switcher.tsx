@@ -18,8 +18,17 @@ export function ThemeSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="text-muted-foreground">
-          {theme === "light" ? <Sun /> : <Moon />}
+        <Button
+          variant="ghost"
+          size={"sm"}
+          className="justify-start gap-2 text-base font-normal text-muted-foreground hover:text-primary"
+        >
+          {theme === "light" ? (
+            <Sun className="size-4" />
+          ) : (
+            <Moon className="size-4" />
+          )}
+          Тема
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>

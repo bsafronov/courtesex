@@ -78,8 +78,12 @@ export const sessionsRelations = relations(sessionsTable, ({ one }) => ({
 
 export const followsTable = schema.table("follows", {
   createdAt,
-  sourceId: integer("source_id").references(() => usersTable.id),
-  targetId: integer("target_id").references(() => usersTable.id),
+  sourceId: integer("source_id")
+    .references(() => usersTable.id)
+    .notNull(),
+  targetId: integer("target_id")
+    .references(() => usersTable.id)
+    .notNull(),
 });
 
 export const followsRelations = relations(followsTable, ({ one, many }) => ({
@@ -97,8 +101,12 @@ export const followsRelations = relations(followsTable, ({ one, many }) => ({
 
 export const followRequestsTable = schema.table("follow_requests", {
   createdAt,
-  sourceId: integer("source_id").references(() => usersTable.id),
-  targetId: integer("target_id").references(() => usersTable.id),
+  sourceId: integer("source_id")
+    .references(() => usersTable.id)
+    .notNull(),
+  targetId: integer("target_id")
+    .references(() => usersTable.id)
+    .notNull(),
 });
 
 export const followRequestsRelations = relations(

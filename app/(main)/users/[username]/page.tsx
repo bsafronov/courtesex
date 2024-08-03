@@ -26,7 +26,9 @@ export default async function Page({ params }: Props) {
 
   return (
     <div>
-      <Heading>{isMyProfile ? "Моя страница" : `Страница ${username}`}</Heading>
+      <Heading
+        title={`${isMyProfile ? "Моя страница" : `Страница ${username}`}`}
+      />
       <div className="mb-16 flex justify-between">
         <div className="flex flex-col items-center justify-center gap-1">
           <Avatar className="size-32 text-xl">

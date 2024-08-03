@@ -22,7 +22,7 @@ export default async function Layout({
       )}
       <Navbar />
       <div className="grow">
-        <div className="mx-auto my-16 max-w-screen-lg">{children}</div>
+        <div className="mx-auto my-16 max-w-screen-lg px-4">{children}</div>
       </div>
     </div>
   );

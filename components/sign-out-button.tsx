@@ -12,11 +12,12 @@ export const SignOutButton = () => {
   return (
     <Button
       variant={"ghost"}
-      size={"icon"}
+      size={"sm"}
       onClick={() => handleSignOut()}
-      className="text-muted-foreground/50 hover:text-red-500"
+      className="justify-start gap-2 text-base font-normal text-muted-foreground hover:text-red-500"
     >
-      <LogOut />
+      <LogOut className="size-4 text-red-500" />
+      Выйти
     </Button>
   );
 };

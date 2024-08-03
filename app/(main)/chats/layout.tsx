@@ -1,9 +1,9 @@
 import { Heading } from "@/components/ui/heading";
 
-export default function Page() {
+export default function Layout() {
   return (
     <div>
-      <Heading>Подписки</Heading>
+      <Heading title="Сообщения" />
     </div>
   );
 }
